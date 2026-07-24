@@ -11,6 +11,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import kz.snega.cheerapp.model.Athlete
+import kz.snega.cheerapp.model.AthleteListUiState
+import kz.snega.cheerapp.model.MockData
+import kz.snega.cheerapp.ui.components.AthleteListScreen
 import kz.snega.cheerapp.ui.theme.CheerAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,28 +24,32 @@ class MainActivity : ComponentActivity() {
         setContent {
             CheerAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    AthleteListScreen(
+                        uiState = AthleteListUiState.Success(athletes = MockData.athletesList),
                         modifier = Modifier.padding(innerPadding)
                     )
+//                    Greeting(
+//                        name = "Android",
+//                        modifier = Modifier.padding(innerPadding)
+//                    )
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    CheerAppTheme {
-        Greeting("Android")
-    }
-}
+//@Composable
+//fun Greeting(name: String, modifier: Modifier = Modifier) {
+//    Text(
+//        text = "Hello $name!",
+//        modifier = modifier
+//    )
+//}
+//
+//@Preview(showBackground = true)
+//@Composable
+//fun GreetingPreview() {
+//    CheerAppTheme {
+//        Greeting("Android")
+//    }
+//}
